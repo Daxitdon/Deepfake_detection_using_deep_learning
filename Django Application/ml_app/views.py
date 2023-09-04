@@ -173,6 +173,7 @@ def get_accurate_model(sequence_length):
     sequence_model = []
     final_model = ""
     list_models = glob.glob(os.path.join(settings.PROJECT_DIR, "models", "*.pt"))
+    print("list_models",list_models)
     for i in list_models:
         model_name.append(i.split("\\")[-1])
     for i in model_name:

@@ -183,7 +183,7 @@ def get_accurate_model(sequence_length):
                 sequence_model.append(i)
         except:
             pass
-
+    print("sequence_model",sequence_model)
     if len(sequence_model) > 1:
         accuracy = []
         for i in sequence_model:

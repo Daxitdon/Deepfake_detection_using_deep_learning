@@ -179,6 +179,7 @@ def get_accurate_model(sequence_length):
         model_name.append(i.split("\\")[-1])
     for i in model_name:
         try:
+            print("i",i)
             seq = i.split("_")[3]
             if (int(seq) == sequence_length):
                 sequence_model.append(i)

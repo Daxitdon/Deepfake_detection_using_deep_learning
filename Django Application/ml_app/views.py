@@ -176,7 +176,7 @@ def get_accurate_model(sequence_length):
     print("list_models",list_models)
     print("sequence_length",sequence_length)
     for i in list_models:
-        model_name.append(i.split("\\")[-1])
+        model_name.append(i.split("/")[-1])
     for i in model_name:
         try:
             print("i",i)

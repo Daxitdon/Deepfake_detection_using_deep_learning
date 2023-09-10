@@ -96,7 +96,7 @@ USE_TZ = False
 STATIC_ROOT = "/home/app/staticfiles/"
 
 #url for static files
-STATIC_URL = '/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'uploaded_images'),

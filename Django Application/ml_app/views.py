@@ -298,7 +298,7 @@ def predict_page(request):
                 image_path = os.path.join(settings.PROJECT_DIR, 'uploaded_images', image_name)
             else:
                 print("image_name",image_name)
-                image_path = "/home/app/staticfiles" + image_name
+                image_path = os.path.join(settings.MEDIA_ROOT, image_name)
             img.save(image_path)
             preprocessed_images.append(image_name)
         print("<=== | Videos Splitting Done | ===>")
@@ -325,7 +325,7 @@ def predict_page(request):
             if settings.DEBUG:
                 image_path = os.path.join(settings.PROJECT_DIR, 'uploaded_images', video_file_name_only+"_cropped_faces_"+str(i)+'.png')
             else:
-                image_path = "/home/app/staticfiles" + image_name
+                image_path = os.path.join(settings.MEDIA_ROOT, image_name)
             img.save(image_path)
             faces_found = faces_found + 1
             faces_cropped_images.append(image_name)
@@ -355,6 +355,7 @@ def predict_page(request):
                 print("Prediction : " , prediction[0],"==",output ,"Confidence : " , confidence)
                 print("--- %s seconds ---" % (time.time() - start_time))
             if settings.DEBUG:
+                print("in the debug mode")
                 return render(request, predict_template_name, {'preprocessed_images': preprocessed_images, 'heatmap_images': heatmap_images, "faces_cropped_images": faces_cropped_images, "original_video": video_file_name, "models_location": models_location, "output": output, "confidence": confidence})
             else:
                 return render(request, predict_template_name, {'preprocessed_images': preprocessed_images, 'heatmap_images': heatmap_images, "faces_cropped_images": faces_cropped_images, "original_video": production_video_name, "models_location": models_location, "output": output, "confidence": confidence})
